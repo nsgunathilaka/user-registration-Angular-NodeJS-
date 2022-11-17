@@ -1,0 +1,112 @@
+<div class="col text-center mt-10">
+  <h1>INTERVIEW APP</h1>
+</div>
+
+<div class="container">
+  <h2>REGISTRATION FORM</h2>
+  <h3>Personal Details</h3>
+  <div class="row">
+    <div>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <input class="form-check-input" type="radio" formControlName="title" id="Mr" value="Mr">
+            <label class="form-check-label labelw" for="exampleRadios1">
+              Mr
+            </label>
+            <input class="form-check-input" type="radio" formControlName="title" id="Mrs" value="Mrs">
+            <label class="form-check-label labelw" for="exampleRadios1">
+              Mrs
+            </label>
+            <input class="form-check-input" type="radio" formControlName="title" id="Miss" value="Miss">
+            <label class="form-check-label labelw" for="exampleRadios1">
+              Miss
+            </label>
+            <input class="form-check-input" type="radio" formControlName="title" id="Ms" value="Ms">
+            <label class="form-check-label labelw" for="exampleRadios1">
+              Ms
+            </label>
+
+
+          <div class="form-group row mb-2">
+            <label for="staticEmail" class="col-sm-2 col-form-label">First name :</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="firstName" formControlName="firstName" [ngClass]="{'is-invalid' : submitted && registerForm.controls.firstName.errors}">
+              <div *ngIf="submitted && registerForm.controls.firstName.errors.required">
+                First name is required!
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row mb-2">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Last name :</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="lastName" formControlName="lastName" [ngClass]="{'is-invalid' : submitted && registerForm.controls.lastName.errors}">
+              <div *ngIf="submitted && registerForm.controls.lastName.errors.required">
+                Last name is required!
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row mb-2">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Date of Birth :</label>
+            <div class="col-sm-10">
+              <input type="date" class="form-control" name="dob" formControlName="dob" [ngClass]="{'is-invalid' : submitted && registerForm.controls.dob.errors}">
+              <div *ngIf="submitted && registerForm.controls.dob.errors.required">
+                Date of birth is required
+                </div>
+            </div>
+          </div>
+
+          <div class="form-group row mb-2">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Email Address :<br> (User Name)</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" name="email" formControlName="email" [ngClass]="{'is-invalid' : submitted && registerForm.controls.email.errors}">
+              <div *ngIf="submitted && registerForm.controls.email.errors.required">
+                Email is required
+                </div>
+                <div *ngIf="submitted && registerForm.controls.email.errors.email">
+                  Invalid email address
+                </div>
+            </div>
+          </div>
+
+          <div class="form-group row mb-2">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Contact No :</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="contact" formControlName="contact" [ngClass]="{'is-invalid' : submitted && registerForm.controls.contact.errors}">
+              <div *ngIf="submitted && registerForm.controls.contact.errors.required">
+                Contact Number is required
+                </div>
+            </div>
+          </div>
+
+          <h3>Password</h3>
+          <div class="form-group row mb-2">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Create Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" name="password" formControlName="password" [ngClass]="{'is-invalid' : submitted && registerForm.controls.password.errors}">
+              <div *ngIf="submitted && registerForm.controls.password.errors.required">
+                Password is required
+                </div>
+            </div>
+          </div>
+
+          <div class="form-group row mb-2">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Re - Type Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" name="confirmPassword" formControlName="confirmPassword" [ngClass]="{'is-invalid' : submitted && registerForm.controls.confirmPassword.errors}">
+              <div *ngIf="submitted && registerForm.controls.confirmPassword.errors.required">
+                Password is required
+                </div>
+            </div>
+          </div>
+
+          <div class="col text-center">
+            <button type="submit" class="btn btn-primary btn-lg center">REGISTER</button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

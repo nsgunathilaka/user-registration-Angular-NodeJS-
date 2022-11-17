@@ -1,0 +1,41 @@
+<div class="col text-center">
+  <h1>INTERVIEW APP</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username" class="form-label center">User Name</label>
+          <div class="col text-center">
+            <span>(Email Address)</span>
+          </div>
+          <input type="text" formControlName="username" class="form-control" [ngClass]="{'is-invalid' : submitted && loginForm.controls.username.errors}">
+          <div class="text-danger" *ngIf="submitted && loginForm.controls.username.errors">
+            <div *ngIf="submitted && loginForm.controls.username.errors.required">
+              User name is required!
+            </div>
+            <div *ngIf="submitted && loginForm.controls.username.errors.email">
+              Invalid email address
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" formControlName="password" class="form-control" [ngClass]="{'is-invalid' : submitted && loginForm.controls.password.errors}">
+          <div class="text-danger" *ngIf="submitted && loginForm.controls.password.errors">
+            <div *ngIf="submitted && loginForm.controls.password.errors.required">
+              Password is required!
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="col text-center">
+          <button type="submit" class="btn btn-primary">LOG IN</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
